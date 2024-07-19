@@ -26,6 +26,7 @@ def get_random():
     link = "https://xkcd.com/" + str(num)
     return scrape(link)
 
+
 def get_latest():
     num = get_curr_num()
     link = "https://xkcd.com/" + str(num)
@@ -36,16 +37,27 @@ def scrape(url):
     response = requests.get(url)
     response.raise_for_status()
     soup = BeautifulSoup(response.content, "html.parser")
-    
+
     comic_div = soup.find("div", id="comic")
     img_tag = comic_div.find("img") if comic_div else None
-    
-    title_div = soup.find("div", id="ctitle")  # Correctly finds the div with id 'ctitle'
-    title_text = title_div.get_text() if title_div else "No title found"  # Extract text if found, else default message
-    
-    img_title = img_tag.get("title") if img_tag else "No image title found"  # Get the title attribute from the img tag
-    
+
+    title_div = soup.find(
+        "div", id="ctitle"
+    )  # Correctly finds the div with id 'ctitle'
+    title_text = (
+        title_div.get_text() if title_div else "No title found"
+    )  # Extract text if found, else default message
+
+    img_title = (
+        img_tag.get("title") if img_tag else "No image title found"
+    )  # Get the title attribute from the img tag
+
     if img_tag:
-        return ["https:" + img_tag["src"], url, title_text, img_title]  # Include img_title as the fourth item
+        return [
+            "https:" + img_tag["src"],
+            url,
+            title_text,
+            img_title,
+        ]  # Include img_title as the fourth item
     else:
         return None

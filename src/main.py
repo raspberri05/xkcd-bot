@@ -24,7 +24,6 @@ async def latest(ctx):
     await ctx.send(embed=embed)
 
 
-
 @bot.hybrid_command()
 async def get(ctx, number):
     await ctx.send(f"fetching xkcd comic {number}...")
@@ -39,7 +38,9 @@ async def random(ctx):
         embed.set_footer(text=link[3])
         await ctx.send(embed=embed)
     except Exception as e:
-        await ctx.send("failed to retrieve random xkcd comic. please contact the developer if this issue persists")
+        await ctx.send(
+            "failed to retrieve random xkcd comic. please contact the developer if this issue persists"
+        )
 
 
 @bot.event
