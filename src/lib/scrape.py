@@ -33,6 +33,11 @@ def get_latest():
     return scrape(link)
 
 
+def get_specific(num):
+    link = "https://xkcd.com/" + str(num)
+    return scrape(link)
+
+
 def scrape(url):
     response = requests.get(url)
     response.raise_for_status()
@@ -41,16 +46,10 @@ def scrape(url):
     comic_div = soup.find("div", id="comic")
     img_tag = comic_div.find("img") if comic_div else None
 
-    title_div = soup.find(
-        "div", id="ctitle"
-    )  # Correctly finds the div with id 'ctitle'
-    title_text = (
-        title_div.get_text() if title_div else "No title found"
-    )  # Extract text if found, else default message
+    title_div = soup.find("div", id="ctitle")
+    title_text = title_div.get_text() if title_div else "No title found"
 
-    img_title = (
-        img_tag.get("title") if img_tag else "No image title found"
-    )  # Get the title attribute from the img tag
+    img_title = img_tag.get("title") if img_tag else "No image title found"
 
     if img_tag:
         return [
@@ -58,6 +57,6 @@ def scrape(url):
             url,
             title_text,
             img_title,
-        ]  # Include img_title as the fourth item
+        ]
     else:
         return None
