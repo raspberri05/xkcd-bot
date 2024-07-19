@@ -3,6 +3,7 @@ from discord import Intents
 from dotenv import load_dotenv
 from discord.ext import commands
 from lib.scrape import get_latest_num
+
 load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
