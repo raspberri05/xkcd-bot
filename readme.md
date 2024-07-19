@@ -4,6 +4,10 @@
 
 This section provides an overview of the `xkcd-bot` functionalities and how to use them.
 
+### Installation
+
+Go to https://discord.com/oauth2/authorize?client_id=1263696260683005972&permissions=18432&integration_type=0&scope=bot to add this bot to your discord server.
+
 ### Commands
 
 - **latest**: Fetches the latest xkcd comic and sends it in the chat.
