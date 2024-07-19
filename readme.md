@@ -16,10 +16,6 @@ This section provides an overview of the `xkcd-bot` functionalities and how to u
 - **random**: Fetches a random xkcd comic and sends it in the chat.
   - Usage: `/random`
 
-### Events
-
-- **on_ready**: Event handler for when the bot has successfully connected to Discord. Indicates that the bot is online and ready to receive commands.
-
 ## Getting Started
 
 ### Installation
