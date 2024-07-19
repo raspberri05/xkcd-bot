@@ -1,20 +1,28 @@
 import os
-import discord
-
 from discord import Intents
 from dotenv import load_dotenv
+from discord.ext import commands
 
 load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = Intents.default()
-client = discord.Client(intents=intents)
+intents.message_content = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 
-@client.event
+@bot.hybrid_command()
+async def test(ctx):
+    await ctx.send("testing123")
+
+
+@bot.event
 async def on_ready():
-    print(f"{client.user} has connected to Discord!")
+    print(f"{bot.user} has connected to Discord!")
+    await bot.tree.sync()
+    print("Command tree synced.")
 
 
-client.run(TOKEN)
+bot.run(TOKEN)
