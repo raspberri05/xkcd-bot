@@ -21,7 +21,7 @@ This section provides an overview of the `xkcd-bot` functionalities and how to u
 ### Installation
 
 ```bash
-pip install -r requirements/requirements.txt -r requirements/requirements-dev.txt
+pip install -r src/requirements.txt -r requirements-dev.txt
 ```
 
 ### Setup
