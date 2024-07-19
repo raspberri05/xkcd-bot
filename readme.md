@@ -29,5 +29,5 @@ pip install -r requirements/requirements.txt -r requirements/requirements-dev.tx
 ### Running
 
 ```bash
-python src/main.py
+python watcher.py
 ```
