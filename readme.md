@@ -1,5 +1,7 @@
 # xkcd-bot
 
+A bot for getting xkcd comics directly in discord. Created with the [discord.py](https://github.com/Rapptz/discord.py) discord API wrapper
+
 ## Documentation
 
 This section provides an overview of the `xkcd-bot` functionalities and how to use them.
@@ -44,4 +46,4 @@ pip install -r src/requirements.txt -r requirements-dev.txt
 python watcher.py
 ```
 
-*This project uses pymon to automatically restart the server on file changes*
+*This project uses [pymon](https://github.com/kevinjosethomas/py-mon) to automatically restart the server on file changes*
