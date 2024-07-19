@@ -14,15 +14,25 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 
 @bot.hybrid_command()
-async def test(ctx):
-    await ctx.send("testing123")
+async def latest(ctx):
+    await ctx.send("fetching latest xkcd comic...")
+
+
+@bot.hybrid_command()
+async def get(ctx, number):
+    await ctx.send(f"fetching xkcd comic {number}...")
+
+
+@bot.hybrid_command()
+async def random(ctx):
+    await ctx.send("fetching random xkcd comic...")
 
 
 @bot.event
 async def on_ready():
-    print(f"{bot.user} has connected to Discord!")
+    print(f"{bot.user} has connected to discord!")
     await bot.tree.sync()
-    print("Command tree synced.")
+    print("command tree synced.")
 
 
 bot.run(TOKEN)
