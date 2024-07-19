@@ -22,7 +22,7 @@ https://discord.com/oauth2/authorize?client_id=1263696260683005972&permissions=1
 - **random**: Fetches a random xkcd comic and sends it in the chat.
   - Usage: `/random`
 
-## Getting Started
+## Setting up this project for local development
 
 ### Installation
 
